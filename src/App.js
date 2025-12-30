@@ -400,9 +400,12 @@ export default function AIPromptFinder() {
     <div className={`min-h-screen font-sans selection:bg-purple-500 selection:text-white flex flex-row relative overflow-hidden transition-colors duration-500 ${bgClass}`}>
       {/* Sidebar */}
       <aside className={`h-screen w-64 bg-slate-900/90 border-r border-slate-800 flex flex-col p-6 fixed left-0 top-0 z-20 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} shadow-xl`}> 
-        <div className="mb-8 flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-purple-400" />
-          <span className="text-lg font-bold text-white tracking-wide">PLOW-AI</span>
+        <div className="flex items-center justify-between mb-8 gap-2">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-purple-400" />
+            <span className="text-lg font-bold text-white tracking-wide">PLOW-AI</span>
+          </div>
+          <button onClick={() => setSidebarOpen(false)} className="ml-auto text-slate-400 hover:text-white text-xs px-2 py-1 rounded-lg bg-slate-800/60">✕</button>
         </div>
         <div className="mb-6">
           <div className="text-xs text-slate-400 mb-2 font-semibold uppercase">Pengaturan</div>
@@ -435,7 +438,7 @@ export default function AIPromptFinder() {
             ))}
           </div>
         </div>
-        <button onClick={() => setSidebarOpen(false)} className="mt-auto text-slate-400 hover:text-white text-xs">Tutup Sidebar</button>
+        {/* Button close moved to top */}
       </aside>
       {/* Sidebar Toggle Button */}
       {!sidebarOpen && (
